@@ -72,10 +72,12 @@ scripts/validate.mjs                 # zero-dependency CI validator
 test/fixtures/                       # deliberately broken marketplaces the validator must reject
 ```
 
-## Three consumers, one source of truth
+## Three consumers, one copy in this repo
 
-The skill content lives **once**, under `plugins/<plugin>/skills/<name>/SKILL.md`.
-Three different tools consume it:
+The canonical skill content is authored upstream in flowleap-cli (see
+[below](#canonical-source-this-repo-is-a-synced-distribution)); within **this**
+repo the synced copy lives **once**, under
+`plugins/<plugin>/skills/<name>/SKILL.md`. Three different tools consume it:
 
 1. **FlowLeap app.** Reads the root `marketplace.json` (Open Plugin format),
    resolves each plugin's `source` directory, and loads its Claude-format
@@ -105,18 +107,49 @@ Three different tools consume it:
 > what makes them multi-harness. Install the [FlowLeap CLI](https://github.com/abdullahatrash/flowleap-cli)
 > to use them outside the FlowLeap app.
 
+## Canonical source: this repo is a synced distribution
+
+The **skill content is authored upstream in
+[flowleap-cli](https://github.com/abdullahatrash/flowleap-cli)** — that is the
+single source of truth for every `SKILL.md`. This marketplace ships **byte-for-byte
+copies** of a pinned flowleap-cli release. The pin lives in
+[`sync.json`](sync.json): the source repo, the release `ref` (a git tag), and the
+list of skills each pack ships.
+
+`scripts/check-drift.mjs` enforces this. On every PR, CI fetches each shipped
+`SKILL.md` from flowleap-cli at the pinned `ref` and **fails if any copy differs**.
+So a PR that hand-edits `plugins/*/skills/**/SKILL.md` (rather than re-syncing from
+the canonical source) will not pass CI. Fix skill content upstream, cut a
+flowleap-cli release, then re-sync here.
+
+### Updating skills (two steps)
+
+1. **Bump the pin.** Set `ref` in `sync.json` to the new flowleap-cli tag (and add
+   or remove entries in its `skills` list if the set of shipped skills changed).
+2. **Re-copy, byte-for-byte.** For each skill, copy the upstream file verbatim, e.g.:
+
+   ```
+   REF=$(node -p "require('./sync.json').ref")
+   git -C ../flowleap-cli show "$REF:skills/<name>/SKILL.md" \
+     > plugins/<plugin>/skills/<name>/SKILL.md
+   npm run check-drift        # must pass (skips gracefully with no network)
+   ```
+
+Then open a PR. CI re-runs the drift check against the new pin.
+
 ## Publishing = opening a pull request
 
 There is no separate publish step. **Merging to `main` publishes.** To add or
 change a pack:
 
-1. Add or edit a plugin under `plugins/<plugin>/` (Claude manifest +
-   `skills/<name>/SKILL.md`).
-2. Register it in `marketplace.json` **and** `.claude-plugin/marketplace.json`
-   (CI checks the two stay consistent).
+1. Re-sync skill content from the pinned flowleap-cli release (see above) — do
+   **not** hand-edit `SKILL.md` files, or the drift check will fail.
+2. Register any new plugin in `marketplace.json` **and**
+   `.claude-plugin/marketplace.json` (CI checks the two stay consistent).
 3. If it ships new skills, add matching relative symlinks under `skills/`.
-4. Open a PR. CI validates every manifest and every `SKILL.md`. Review is the
-   curation gate; history and rollback are ordinary git operations.
+4. Open a PR. CI validates every manifest, every `SKILL.md`, and that no skill has
+   drifted from the pinned source. Review is the curation gate; history and
+   rollback are ordinary git operations.
 
 Installed apps pick up merged changes on the marketplace's normal refresh
 cadence (fetches cached ~8h; plugins auto-update ~24h).
@@ -134,10 +167,18 @@ cadence (fetches cached ~8h; plugins auto-update ~24h).
   present.
 - The root `skills/` aggregation: every entry resolves to a real `SKILL.md`.
 
+`scripts/check-drift.mjs` (no dependencies) additionally checks that every shipped
+`SKILL.md` is byte-identical to its canonical copy in flowleap-cli at the `ref`
+pinned in `sync.json`.
+
 ```
 npm run validate            # validate this repo (must pass)
 npm run validate:fixtures   # every test/fixtures/invalid-* repo must FAIL
 npm test                    # both of the above
+npm run check-drift         # shipped skills match the pinned source (skips offline)
+npm run check-drift:ci      # same, but a missing network is a hard failure
 ```
 
-CI runs both on every PR and push to `main`.
+CI runs the validator, the negative fixtures, and the drift check on every PR and
+push to `main`. The drift check needs network (GitHub Actions has it); run
+locally it skips gracefully with a warning when offline.

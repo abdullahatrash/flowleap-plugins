@@ -1,0 +1,30 @@
+{
+	"$comment": "Single source of truth for the shipped SKILL.md files. Canonical skills live in flowleap-cli; this repo is a synced distribution. To update skills: bump 'ref' to a new flowleap-cli tag, re-copy the listed SKILL.md files byte-for-byte, and open a PR. scripts/check-drift.mjs fetches each skill from the pinned ref and fails CI if a shipped copy differs. Do NOT hand-edit shipped skills/ content — edit upstream in flowleap-cli, tag a release, then re-sync here.",
+	"source": "abdullahatrash/flowleap-cli",
+	"ref": "v0.3.1",
+	"sourceSkillsDir": "skills",
+	"skills": [
+		{ "name": "persona-ip-analyst", "plugin": "personas" },
+		{ "name": "persona-patent-attorney", "plugin": "personas" },
+		{ "name": "persona-researcher", "plugin": "personas" },
+		{ "name": "persona-startup-founder", "plugin": "personas" },
+		{ "name": "recipe-prior-art-search", "plugin": "recipes" },
+		{ "name": "recipe-freedom-to-operate", "plugin": "recipes" },
+		{ "name": "recipe-patent-landscape", "plugin": "recipes" },
+		{ "name": "recipe-claim-analysis", "plugin": "recipes" },
+		{ "name": "recipe-patent-to-report", "plugin": "recipes" },
+		{ "name": "recipe-academic-literature-review", "plugin": "recipes" },
+		{ "name": "flowleap", "plugin": "flowleap-tools" },
+		{ "name": "flowleap-academic", "plugin": "flowleap-tools" },
+		{ "name": "flowleap-auth", "plugin": "flowleap-tools" },
+		{ "name": "flowleap-citation", "plugin": "flowleap-tools" },
+		{ "name": "flowleap-keys", "plugin": "flowleap-tools" },
+		{ "name": "flowleap-legal", "plugin": "flowleap-tools" },
+		{ "name": "flowleap-npl", "plugin": "flowleap-tools" },
+		{ "name": "flowleap-ops", "plugin": "flowleap-tools" },
+		{ "name": "flowleap-patent", "plugin": "flowleap-tools" },
+		{ "name": "flowleap-shared", "plugin": "flowleap-tools" },
+		{ "name": "flowleap-tools", "plugin": "flowleap-tools" },
+		{ "name": "flowleap-uspto", "plugin": "flowleap-tools" }
+	]
+}
