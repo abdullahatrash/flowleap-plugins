@@ -1,0 +1,17 @@
+{
+	"metadata": { "pluginRoot": "plugins" },
+	"plugins": [
+		{
+			"name": "alpha",
+			"description": "First plugin declaring a skill named 'shared-skill'.",
+			"version": "1.0.0",
+			"source": "alpha"
+		},
+		{
+			"name": "beta",
+			"description": "Second plugin declaring a skill of the same name — must be rejected.",
+			"version": "1.0.0",
+			"source": "beta"
+		}
+	]
+}

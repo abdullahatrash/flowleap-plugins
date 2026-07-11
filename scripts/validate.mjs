@@ -91,8 +91,13 @@ function findManifest(pluginDir) {
 	return undefined;
 }
 
-/** Validate a plugin directory: its manifest and all of its skills. */
-function validatePlugin(pluginDir, declaredName, errors) {
+/**
+ * Validate a plugin directory: its manifest and all of its skills. `seenSkills`
+ * maps a skill name to the plugin that first declared it, so duplicate skill
+ * names across packs (which would collide in the root skills/ aggregation and
+ * confuse `npx skills`) are rejected.
+ */
+function validatePlugin(pluginDir, declaredName, errors, seenSkills) {
 	const label = `plugin '${declaredName}'`;
 	const manifestPath = findManifest(pluginDir);
 	if (!manifestPath) {
@@ -141,6 +146,14 @@ function validatePlugin(pluginDir, declaredName, errors) {
 		if (!fm.description || !fm.description.trim()) {
 			errors.push(`${label}: skill '${entry}' frontmatter is missing 'description'`);
 		}
+		if (seenSkills) {
+			const prior = seenSkills.get(entry);
+			if (prior !== undefined && prior !== declaredName) {
+				errors.push(`${label}: skill '${entry}' duplicates a skill of the same name in plugin '${prior}' — skill names must be unique across packs`);
+			} else {
+				seenSkills.set(entry, declaredName);
+			}
+		}
 	}
 }
 
@@ -170,6 +183,7 @@ function validateMarketplace(root) {
 	}
 
 	const rootPluginNames = new Set();
+	const seenSkills = new Map();
 	for (const [i, p] of marketplace.plugins.entries()) {
 		const where = `marketplace.json plugins[${i}]`;
 		if (typeof p.name !== 'string' || !p.name.trim()) {
@@ -192,7 +206,7 @@ function validateMarketplace(root) {
 			errors.push(`${where} ('${p.name}'): source directory does not exist: ${pluginDir}`);
 			continue;
 		}
-		validatePlugin(pluginDir, p.name, errors);
+		validatePlugin(pluginDir, p.name, errors, seenSkills);
 	}
 
 	// Optional Claude Code marketplace must stay consistent with the root index.

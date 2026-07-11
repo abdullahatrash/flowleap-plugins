@@ -6,9 +6,21 @@ installing anything published here skips the "plugins can run code" trust prompt
 because FlowLeap curates every entry through pull-request review.
 
 Each plugin is a **Skill Pack** — a bundle of `SKILL.md` files that extend a
-patent professional's agent with new workflows. The launch pack is
-[**Personas**](plugins/personas): patent attorney, IP analyst, researcher, and
-startup-founder skills that drive the FlowLeap CLI / backend facade.
+patent professional's agent with new workflows. The launch packs are:
+
+- [**Personas**](plugins/personas) — patent attorney, IP analyst, researcher,
+  and startup-founder skills that prime the agent for a role.
+- [**Recipes**](plugins/recipes) — end-to-end workflows: prior-art search,
+  freedom-to-operate, patent landscape, claim analysis, patent-to-report, and
+  academic literature review.
+- [**FlowLeap Tools**](plugins/flowleap-tools) — the `flowleap-*` skills that
+  teach an agent to drive the FlowLeap CLI and backend facade (auth, provider
+  keys, EPO/USPTO/OPS search, academic & non-patent literature, legal
+  references, citations, and the unified `/v1/tools` facade).
+
+Every pack drives the FlowLeap CLI / backend facade — no in-app typed tool
+names — so the same skills work in the FlowLeap IDE, Claude Code, and any agent
+with the CLI available.
 
 ## Free forever
 
@@ -31,6 +43,30 @@ plugins/
       persona-ip-analyst/SKILL.md
       persona-researcher/SKILL.md
       persona-startup-founder/SKILL.md
+  recipes/                           # end-to-end patent-research workflows
+    .claude-plugin/plugin.json
+    skills/
+      recipe-prior-art-search/SKILL.md
+      recipe-freedom-to-operate/SKILL.md
+      recipe-patent-landscape/SKILL.md
+      recipe-claim-analysis/SKILL.md
+      recipe-patent-to-report/SKILL.md
+      recipe-academic-literature-review/SKILL.md
+  flowleap-tools/                    # the flowleap-* CLI / backend-facade tool skills
+    .claude-plugin/plugin.json
+    skills/
+      flowleap/SKILL.md
+      flowleap-shared/SKILL.md
+      flowleap-auth/SKILL.md
+      flowleap-keys/SKILL.md
+      flowleap-patent/SKILL.md
+      flowleap-uspto/SKILL.md
+      flowleap-ops/SKILL.md
+      flowleap-academic/SKILL.md
+      flowleap-npl/SKILL.md
+      flowleap-legal/SKILL.md
+      flowleap-citation/SKILL.md
+      flowleap-tools/SKILL.md
 skills/                              # aggregation for the `npx skills` CLI (symlinks — see below)
 scripts/validate.mjs                 # zero-dependency CI validator
 test/fixtures/                       # deliberately broken marketplaces the validator must reject
