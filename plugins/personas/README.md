@@ -17,8 +17,17 @@ These skills call the `flowleap` CLI (`flowleap patent search`, `flowleap ops
 claims`, `flowleap academic search`, …). They reference **no in-app typed tool
 names**, which is what makes them multi-harness: they work identically inside
 the FlowLeap IDE's Claude sessions, in Claude Code, and in any agent that has
-the FlowLeap CLI available. Install the CLI separately — it is a runtime
-dependency of this pack.
+the FlowLeap CLI available.
+
+### Requires the FlowLeap CLI
+
+This pack has a **soft dependency on the [FlowLeap CLI](https://github.com/abdullahatrash/flowleap-cli)** —
+install it separately; it is a runtime dependency. Each persona's frontmatter
+declares `metadata.requires.skills` naming the CLI's own skills
+(`flowleap-shared`, `flowleap-patent`, `flowleap-ops`, `flowleap-academic`).
+Those skills live in the flowleap-cli repository, **not** in this pack, and they
+are what supply the `flowleap` commands the personas invoke. Without the CLI (and
+its skills) installed, the personas load but their commands will not run.
 
 ## Format
 
