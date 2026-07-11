@@ -1,0 +1,10 @@
+{
+	"metadata": { "pluginRoot": "plugins" },
+	"plugins": [
+		{
+			"description": "A plugin whose required 'name' field is missing — must be rejected by CI.",
+			"version": "1.0.0",
+			"source": "foo"
+		}
+	]
+}

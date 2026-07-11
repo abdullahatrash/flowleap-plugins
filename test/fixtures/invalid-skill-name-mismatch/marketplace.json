@@ -1,0 +1,11 @@
+{
+	"metadata": { "pluginRoot": "plugins" },
+	"plugins": [
+		{
+			"name": "baz",
+			"description": "A valid marketplace entry whose skill frontmatter name mismatches its folder.",
+			"version": "1.0.0",
+			"source": "baz"
+		}
+	]
+}

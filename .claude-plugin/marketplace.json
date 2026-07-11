@@ -1,0 +1,17 @@
+{
+	"name": "flowleap-plugins",
+	"owner": {
+		"name": "FlowLeap"
+	},
+	"metadata": {
+		"description": "The FlowLeap Plugin Marketplace — curated, free-to-install skill packs for patent and IP work.",
+		"version": "1.0.0"
+	},
+	"plugins": [
+		{
+			"name": "personas",
+			"source": "./plugins/personas",
+			"description": "FlowLeap persona skill pack — patent attorney, IP analyst, researcher, and startup-founder workflows that operate entirely through the FlowLeap CLI / backend facade."
+		}
+	]
+}

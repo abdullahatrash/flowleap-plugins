@@ -1,0 +1,11 @@
+{
+	"metadata": { "pluginRoot": "plugins" },
+	"plugins": [
+		{
+			"name": "bar",
+			"description": "A valid marketplace entry whose skill is missing its description.",
+			"version": "1.0.0",
+			"source": "bar"
+		}
+	]
+}

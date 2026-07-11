@@ -1,0 +1,16 @@
+{
+	"name": "personas",
+	"description": "FlowLeap persona skill pack — patent attorney, IP analyst, researcher, and startup-founder workflows that operate entirely through the FlowLeap CLI / backend facade.",
+	"version": "1.0.0",
+	"author": {
+		"name": "FlowLeap"
+	},
+	"homepage": "https://github.com/abdullahatrash/flowleap-plugins",
+	"license": "MIT",
+	"keywords": [
+		"patent",
+		"intellectual-property",
+		"personas",
+		"flowleap"
+	]
+}
