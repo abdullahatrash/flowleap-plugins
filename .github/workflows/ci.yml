@@ -28,3 +28,10 @@ jobs:
 
       - name: Negative fixtures must fail validation
         run: node scripts/validate.mjs --test-fixtures
+
+      - name: Skills must match the pinned canonical source (no drift)
+        # Fetches each shipped SKILL.md from flowleap-cli at the ref pinned in
+        # sync.json and fails if any differ. --require-network makes a missing
+        # network a hard failure here (GitHub Actions always has network), so
+        # drift is never silently skipped in CI.
+        run: node scripts/check-drift.mjs --require-network

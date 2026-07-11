@@ -8,6 +8,8 @@
 	"scripts": {
 		"validate": "node scripts/validate.mjs",
 		"validate:fixtures": "node scripts/validate.mjs --test-fixtures",
+		"check-drift": "node scripts/check-drift.mjs",
+		"check-drift:ci": "node scripts/check-drift.mjs --require-network",
 		"test": "npm run validate && npm run validate:fixtures"
 	}
 }
