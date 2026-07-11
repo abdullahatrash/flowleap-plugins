@@ -10,5 +10,6 @@ passes. This guards the validator itself against silently going lax.
 | `invalid-marketplace-missing-name` | A `marketplace.json` plugin entry missing the required `name`. |
 | `invalid-skill-missing-description` | A `SKILL.md` whose frontmatter omits `description`. |
 | `invalid-skill-name-mismatch` | A `SKILL.md` whose frontmatter `name` does not match its folder. |
+| `invalid-duplicate-skill-name` | Two plugins declaring a skill of the same name (would collide in the root `skills/` aggregation). |
 
 When you add a new validation rule, add a fixture that trips it.

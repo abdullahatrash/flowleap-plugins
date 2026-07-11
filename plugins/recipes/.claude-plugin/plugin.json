@@ -1,0 +1,18 @@
+{
+	"name": "recipes",
+	"description": "FlowLeap patent-research recipe pack — end-to-end workflows for prior-art search, freedom-to-operate, patent landscape, claim analysis, patent-to-report, and academic literature review, all driven through the FlowLeap CLI / backend facade.",
+	"version": "1.0.0",
+	"author": {
+		"name": "FlowLeap"
+	},
+	"homepage": "https://github.com/abdullahatrash/flowleap-plugins",
+	"license": "MIT",
+	"keywords": [
+		"patent",
+		"intellectual-property",
+		"recipes",
+		"prior-art",
+		"freedom-to-operate",
+		"flowleap"
+	]
+}

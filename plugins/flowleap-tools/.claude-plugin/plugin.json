@@ -1,0 +1,19 @@
+{
+	"name": "flowleap-tools",
+	"description": "FlowLeap CLI tool pack — the flowleap-* skills that teach an agent to drive the FlowLeap CLI and backend facade: authentication, provider keys, EPO/USPTO/OPS patent search, academic and non-patent literature, legal references, citations, and the unified /v1/tools facade.",
+	"version": "1.0.0",
+	"author": {
+		"name": "FlowLeap"
+	},
+	"homepage": "https://github.com/abdullahatrash/flowleap-plugins",
+	"license": "MIT",
+	"keywords": [
+		"patent",
+		"intellectual-property",
+		"flowleap",
+		"cli",
+		"uspto",
+		"epo",
+		"backend-facade"
+	]
+}
