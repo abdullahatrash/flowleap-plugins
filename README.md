@@ -154,6 +154,16 @@ change a pack:
 Installed apps pick up merged changes on the marketplace's normal refresh
 cadence (fetches cached ~8h; plugins auto-update ~24h).
 
+## Contributing a skill
+
+Outside contributors are welcome to propose skills — FlowLeap reviews and merges
+them (curated, not an open publish pipeline). The submission recipe, written in
+plain language for patent professionals (including those working through an AI
+agent), lives in [CONTRIBUTING.md](CONTRIBUTING.md), with a copy-paste starter in
+[`template/SKILL.md`](template/SKILL.md). A new skill folder — in an existing pack
+or a new one — is never touched by the drift check (which only covers the
+`sync.json` set), so third-party skills coexist with the synced ones.
+
 ## Validation
 
 `scripts/validate.mjs` (no dependencies) checks:
