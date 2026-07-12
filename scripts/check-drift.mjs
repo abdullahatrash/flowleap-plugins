@@ -4,6 +4,14 @@
 // live upstream; this repo is a synced distribution. Editing shipped skills/
 // content directly (instead of re-syncing) makes this check fail.
 //
+// Scope: this check ONLY iterates the skills listed in sync.json. Third-party
+// submissions (a new skill folder in an existing pack, or a whole new pack) are
+// not in that list, so they are never drift-checked — by construction. That is
+// the coexistence rule that lets curated third-party skills live beside the
+// synced set. See CONTRIBUTING.md ("Why your new skill will not break the drift
+// check"). The only thing that trips this check is editing an already-synced
+// SKILL.md.
+//
 // Usage:
 //   node scripts/check-drift.mjs                 compare shipped skills to the pinned ref
 //   node scripts/check-drift.mjs --require-network   treat "can't reach the source" as a failure (CI)
