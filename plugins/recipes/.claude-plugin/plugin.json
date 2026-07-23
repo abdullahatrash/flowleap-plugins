@@ -9,10 +9,14 @@
 	"license": "MIT",
 	"keywords": [
 		"patent",
+		"patent-ai",
 		"intellectual-property",
-		"recipes",
+		"ip",
 		"prior-art",
 		"freedom-to-operate",
-		"flowleap"
+		"patent-landscape",
+		"dashboard",
+		"claim-analysis",
+		"claude-code-plugin"
 	]
 }

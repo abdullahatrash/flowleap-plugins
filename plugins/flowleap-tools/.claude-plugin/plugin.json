@@ -9,11 +9,14 @@
 	"license": "MIT",
 	"keywords": [
 		"patent",
+		"patent-ai",
 		"intellectual-property",
-		"flowleap",
-		"cli",
-		"uspto",
+		"ip",
+		"patent-search",
 		"epo",
-		"backend-facade"
+		"uspto",
+		"prior-art",
+		"citations",
+		"claude-code-plugin"
 	]
 }
