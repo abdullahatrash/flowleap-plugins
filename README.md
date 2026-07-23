@@ -5,18 +5,26 @@ public monorepo is the FlowLeap app's default, pre-trusted plugin marketplace:
 installing anything published here skips the "plugins can run code" trust prompt,
 because FlowLeap curates every entry through pull-request review.
 
-Each plugin is a **Skill Pack** — a bundle of `SKILL.md` files that extend a
-patent professional's agent with new workflows. The launch packs are:
+Everything ships as **one plugin** — [`flowleap`](plugins/flowleap) — so a
+single install brings the complete 24-skill set:
 
-- [**Personas**](plugins/personas) — patent attorney, IP analyst, researcher,
-  and startup-founder skills that prime the agent for a role.
-- [**Recipes**](plugins/recipes) — end-to-end workflows: prior-art search,
-  freedom-to-operate, patent landscape, claim analysis, patent-to-report, and
-  academic literature review.
-- [**FlowLeap Tools**](plugins/flowleap-tools) — the `flowleap-*` skills that
-  teach an agent to drive the FlowLeap CLI and backend facade (auth, provider
-  keys, EPO/USPTO/OPS search, academic & non-patent literature, legal
-  references, citations, and the unified `/v1/tools` facade).
+- **Data-access skills** (`flowleap-*`) — drive the FlowLeap CLI and backend
+  facade: auth, provider keys, EPO/USPTO/OPS search, academic & non-patent
+  literature, legal references, citations, PATSTAT portfolio analytics, and
+  the unified `/v1/tools` facade.
+- **Recipes** (`recipe-*`) — end-to-end workflows: prior-art search,
+  freedom-to-operate, patent landscape, claim analysis, patent-to-report,
+  academic literature review, and verified-data HTML dashboards
+  (`recipe-custom-dashboard`).
+- **Personas** (`persona-*`) — patent attorney, IP analyst, researcher, and
+  startup-founder roles.
+
+Install in Claude Code:
+
+```
+/plugin marketplace add flowleap-ai/flowleap-plugins
+/plugin install flowleap@flowleap-plugins
+```
 
 Every pack drives the FlowLeap CLI / backend facade — no in-app typed tool
 names — so the same skills work in the FlowLeap IDE, Claude Code, and any agent
@@ -36,37 +44,9 @@ repo. Do not add content here that is intended to become paid.
 marketplace.json                     # marketplace index the FlowLeap app reads (root, checked first)
 .claude-plugin/marketplace.json      # same index in Claude Code CLI format (kept in sync by CI)
 plugins/
-  personas/                          # one directory per plugin (the plugin root)
+  flowleap/                          # THE plugin (single plugin root)
     .claude-plugin/plugin.json       #   Claude plugin manifest → loads in FlowLeap app + Claude Code
-    skills/
-      persona-patent-attorney/SKILL.md
-      persona-ip-analyst/SKILL.md
-      persona-researcher/SKILL.md
-      persona-startup-founder/SKILL.md
-  recipes/                           # end-to-end patent-research workflows
-    .claude-plugin/plugin.json
-    skills/
-      recipe-prior-art-search/SKILL.md
-      recipe-freedom-to-operate/SKILL.md
-      recipe-patent-landscape/SKILL.md
-      recipe-claim-analysis/SKILL.md
-      recipe-patent-to-report/SKILL.md
-      recipe-academic-literature-review/SKILL.md
-  flowleap-tools/                    # the flowleap-* CLI / backend-facade tool skills
-    .claude-plugin/plugin.json
-    skills/
-      flowleap/SKILL.md
-      flowleap-shared/SKILL.md
-      flowleap-auth/SKILL.md
-      flowleap-keys/SKILL.md
-      flowleap-patent/SKILL.md
-      flowleap-uspto/SKILL.md
-      flowleap-ops/SKILL.md
-      flowleap-academic/SKILL.md
-      flowleap-npl/SKILL.md
-      flowleap-legal/SKILL.md
-      flowleap-citation/SKILL.md
-      flowleap-tools/SKILL.md
+    skills/                          #   all 24 skills: flowleap-*, recipe-*, persona-*
 skills/                              # aggregation for the `npx skills` CLI (symlinks — see below)
 scripts/validate.mjs                 # zero-dependency CI validator
 test/fixtures/                       # deliberately broken marketplaces the validator must reject
@@ -77,7 +57,7 @@ test/fixtures/                       # deliberately broken marketplaces the vali
 The canonical skill content is authored upstream in flowleap-cli (see
 [below](#canonical-source-this-repo-is-a-synced-distribution)); within **this**
 repo the synced copy lives **once**, under
-`plugins/<plugin>/skills/<name>/SKILL.md`. Three different tools consume it:
+`plugins/flowleap/skills/<name>/SKILL.md`. Three different tools consume it:
 
 1. **FlowLeap app.** Reads the root `marketplace.json` (Open Plugin format),
    resolves each plugin's `source` directory, and loads its Claude-format
@@ -93,16 +73,16 @@ repo the synced copy lives **once**, under
    depth (`skills/<name>/SKILL.md`) — it does **not** descend into per-plugin
    `plugins/*/skills/` trees. So the root `skills/` directory here is an
    aggregation layer: each entry is a **relative symlink** to the canonical skill
-   under `plugins/personas/skills/`. Symlinks (not copies) keep a single source
+   under `plugins/flowleap/skills/`. Symlinks (not copies) keep a single source
    of truth with no drift; git preserves them and the `npx skills` walker follows
    them.
 
    ```
-   npx skills add flowleap-ai/flowleap-plugins --list   # lists the persona skills
+   npx skills add flowleap-ai/flowleap-plugins --list   # lists all 24 skills
    npx skills add flowleap-ai/flowleap-plugins          # installs them into your agent
    ```
 
-> These persona skills call the **FlowLeap CLI** (`flowleap patent search`,
+> These skills call the **FlowLeap CLI** (`flowleap patent search`,
 > `flowleap ops claims`, …) and reference no in-app typed tool names. That is
 > what makes them multi-harness. Install the [FlowLeap CLI](https://github.com/flowleap-ai/flowleap-cli)
 > to use them outside the FlowLeap app.
@@ -160,8 +140,7 @@ Outside contributors are welcome to propose skills — FlowLeap reviews and merg
 them (curated, not an open publish pipeline). The submission recipe, written in
 plain language for patent professionals (including those working through an AI
 agent), lives in [CONTRIBUTING.md](CONTRIBUTING.md), with a copy-paste starter in
-[`template/SKILL.md`](template/SKILL.md). A new skill folder — in an existing pack
-or a new one — is never touched by the drift check (which only covers the
+[`template/SKILL.md`](template/SKILL.md). A new skill folder — is never touched by the drift check (which only covers the
 `sync.json` set), so third-party skills coexist with the synced ones.
 
 ## Validation

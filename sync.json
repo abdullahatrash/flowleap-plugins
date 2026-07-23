@@ -6,99 +6,99 @@
 	"skills": [
 		{
 			"name": "persona-ip-analyst",
-			"plugin": "personas"
+			"plugin": "flowleap"
 		},
 		{
 			"name": "persona-patent-attorney",
-			"plugin": "personas"
+			"plugin": "flowleap"
 		},
 		{
 			"name": "persona-researcher",
-			"plugin": "personas"
+			"plugin": "flowleap"
 		},
 		{
 			"name": "persona-startup-founder",
-			"plugin": "personas"
+			"plugin": "flowleap"
 		},
 		{
 			"name": "recipe-prior-art-search",
-			"plugin": "recipes"
+			"plugin": "flowleap"
 		},
 		{
 			"name": "recipe-freedom-to-operate",
-			"plugin": "recipes"
+			"plugin": "flowleap"
 		},
 		{
 			"name": "recipe-patent-landscape",
-			"plugin": "recipes"
+			"plugin": "flowleap"
 		},
 		{
 			"name": "recipe-claim-analysis",
-			"plugin": "recipes"
+			"plugin": "flowleap"
 		},
 		{
 			"name": "recipe-patent-to-report",
-			"plugin": "recipes"
+			"plugin": "flowleap"
 		},
 		{
 			"name": "recipe-academic-literature-review",
-			"plugin": "recipes"
+			"plugin": "flowleap"
 		},
 		{
 			"name": "flowleap",
-			"plugin": "flowleap-tools"
+			"plugin": "flowleap"
 		},
 		{
 			"name": "flowleap-academic",
-			"plugin": "flowleap-tools"
+			"plugin": "flowleap"
 		},
 		{
 			"name": "flowleap-auth",
-			"plugin": "flowleap-tools"
+			"plugin": "flowleap"
 		},
 		{
 			"name": "flowleap-citation",
-			"plugin": "flowleap-tools"
+			"plugin": "flowleap"
 		},
 		{
 			"name": "flowleap-keys",
-			"plugin": "flowleap-tools"
+			"plugin": "flowleap"
 		},
 		{
 			"name": "flowleap-legal",
-			"plugin": "flowleap-tools"
+			"plugin": "flowleap"
 		},
 		{
 			"name": "flowleap-npl",
-			"plugin": "flowleap-tools"
+			"plugin": "flowleap"
 		},
 		{
 			"name": "flowleap-ops",
-			"plugin": "flowleap-tools"
+			"plugin": "flowleap"
 		},
 		{
 			"name": "flowleap-patent",
-			"plugin": "flowleap-tools"
+			"plugin": "flowleap"
 		},
 		{
 			"name": "flowleap-shared",
-			"plugin": "flowleap-tools"
+			"plugin": "flowleap"
 		},
 		{
 			"name": "flowleap-tools",
-			"plugin": "flowleap-tools"
+			"plugin": "flowleap"
 		},
 		{
 			"name": "flowleap-uspto",
-			"plugin": "flowleap-tools"
+			"plugin": "flowleap"
 		},
 		{
 			"name": "flowleap-patstat",
-			"plugin": "flowleap-tools"
+			"plugin": "flowleap"
 		},
 		{
 			"name": "recipe-custom-dashboard",
-			"plugin": "recipes",
+			"plugin": "flowleap",
 			"$comment": "Ships its references/ tree (templates, fixtures, smoke) alongside SKILL.md — the skill is inert without them. check-drift guards only the SKILL.md; re-copy references/ on every re-sync."
 		}
 	]
