@@ -11,14 +11,14 @@
 		},
 		{
 			"name": "recipes",
-			"description": "FlowLeap patent-research recipe pack — end-to-end workflows for prior-art search, freedom-to-operate, patent landscape, claim analysis, patent-to-report, and academic literature review, all driven through the FlowLeap CLI / backend facade.",
-			"version": "1.0.0",
+			"description": "FlowLeap patent-research recipe pack — end-to-end workflows for prior-art search, freedom-to-operate, patent landscape, claim analysis, patent-to-report, and academic literature review, plus recipe-custom-dashboard: disposable, self-contained HTML dashboards with verified numbers and full data provenance, generated from live patent data by a zero-dependency script. All driven through the FlowLeap CLI / backend facade.",
+			"version": "1.1.0",
 			"source": "recipes"
 		},
 		{
 			"name": "flowleap-tools",
 			"description": "FlowLeap CLI tool pack — the flowleap-* skills that teach an agent to drive the FlowLeap CLI and backend facade: authentication, provider keys, EPO/USPTO/OPS patent search, academic and non-patent literature, legal references, citations, and the unified /v1/tools facade.",
-			"version": "1.0.0",
+			"version": "1.1.0",
 			"source": "flowleap-tools"
 		}
 	]
