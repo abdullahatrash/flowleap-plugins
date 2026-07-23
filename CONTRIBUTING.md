@@ -138,7 +138,7 @@ analyze_claim(...)         # ✗
 
 If you are not sure a command exists, run `flowleap --help` (and
 `flowleap <group> --help`) to see the real commands, or install the
-[FlowLeap CLI](https://github.com/abdullahatrash/flowleap-cli) and try it. Every
+[FlowLeap CLI](https://github.com/flowleap-ai/flowleap-cli) and try it. Every
 command you put in a skill should be one you actually ran.
 
 ### 4. Cross-references to other skills must be optional
@@ -173,7 +173,7 @@ commands for you.
 ### Step 1 — Fork this repository
 
 On GitHub, click **Fork** at the top right of
-[`flowleap-plugins`](https://github.com/abdullahatrash/flowleap-plugins). That
+[`flowleap-plugins`](https://github.com/flowleap-ai/flowleap-plugins). That
 gives you your own copy to work in. Then get it onto your computer:
 
 ```bash
@@ -308,7 +308,7 @@ You may notice CI has a step called the **drift check**. Here is what it does an
 why it will not get in your way.
 
 Most of the skills already in this repo are **synced copies** of skills authored
-in [flowleap-cli](https://github.com/abdullahatrash/flowleap-cli) — that upstream
+in [flowleap-cli](https://github.com/flowleap-ai/flowleap-cli) — that upstream
 project is their source of truth. The drift check makes sure nobody hand-edits
 those synced copies here; it compares each one, byte for byte, against the
 upstream original. The exact list of synced skills lives in
@@ -334,5 +334,5 @@ stays green.**
 ## Questions
 
 Open an issue on
-[flowleap-plugins](https://github.com/abdullahatrash/flowleap-plugins/issues) if
+[flowleap-plugins](https://github.com/flowleap-ai/flowleap-plugins/issues) if
 anything here is unclear. We would rather answer a question than have you guess.

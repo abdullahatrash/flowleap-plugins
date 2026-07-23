@@ -1,7 +1,7 @@
 {
 	"$comment": "Single source of truth for the shipped SKILL.md files. Canonical skills live in flowleap-cli; this repo is a synced distribution. To update skills: bump 'ref' to a new flowleap-cli tag, re-copy the listed SKILL.md files byte-for-byte, and open a PR. scripts/check-drift.mjs fetches each skill from the pinned ref and fails CI if a shipped copy differs. Do NOT hand-edit shipped skills/ content — edit upstream in flowleap-cli, tag a release, then re-sync here.",
-	"source": "abdullahatrash/flowleap-cli",
-	"ref": "v0.3.7",
+	"source": "flowleap-ai/flowleap-cli",
+	"ref": "v0.3.8",
 	"sourceSkillsDir": "skills",
 	"skills": [
 		{

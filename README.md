@@ -83,7 +83,7 @@ repo the synced copy lives **once**, under
    resolves each plugin's `source` directory, and loads its Claude-format
    manifest and skills. This repo is wired as the app's sole default
    marketplace, pre-seeded as trusted.
-2. **Claude Code CLI.** `claude plugin marketplace add abdullahatrash/flowleap-plugins`
+2. **Claude Code CLI.** `claude plugin marketplace add flowleap-ai/flowleap-plugins`
    reads `.claude-plugin/marketplace.json` and each plugin's
    `.claude-plugin/plugin.json`. Authoring plugins in the Claude manifest format
    is what makes the same packs usable outside the IDE.
@@ -98,19 +98,19 @@ repo the synced copy lives **once**, under
    them.
 
    ```
-   npx skills add abdullahatrash/flowleap-plugins --list   # lists the persona skills
-   npx skills add abdullahatrash/flowleap-plugins          # installs them into your agent
+   npx skills add flowleap-ai/flowleap-plugins --list   # lists the persona skills
+   npx skills add flowleap-ai/flowleap-plugins          # installs them into your agent
    ```
 
 > These persona skills call the **FlowLeap CLI** (`flowleap patent search`,
 > `flowleap ops claims`, …) and reference no in-app typed tool names. That is
-> what makes them multi-harness. Install the [FlowLeap CLI](https://github.com/abdullahatrash/flowleap-cli)
+> what makes them multi-harness. Install the [FlowLeap CLI](https://github.com/flowleap-ai/flowleap-cli)
 > to use them outside the FlowLeap app.
 
 ## Canonical source: this repo is a synced distribution
 
 The **skill content is authored upstream in
-[flowleap-cli](https://github.com/abdullahatrash/flowleap-cli)** — that is the
+[flowleap-cli](https://github.com/flowleap-ai/flowleap-cli)** — that is the
 single source of truth for every `SKILL.md`. This marketplace ships **byte-for-byte
 copies** of a pinned flowleap-cli release. The pin lives in
 [`sync.json`](sync.json): the source repo, the release `ref` (a git tag), and the

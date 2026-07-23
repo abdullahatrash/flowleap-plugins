@@ -1,7 +1,7 @@
 <!--
 Thanks for contributing a skill! Please answer the three questions below — they
 are exactly what a reviewer needs. New to this? Read CONTRIBUTING.md first:
-https://github.com/abdullahatrash/flowleap-plugins/blob/main/CONTRIBUTING.md
+https://github.com/flowleap-ai/flowleap-plugins/blob/main/CONTRIBUTING.md
 -->
 
 ## What this skill does

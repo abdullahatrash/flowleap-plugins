@@ -1,7 +1,7 @@
 # Recipes
 
 Recipe skill pack for FlowLeap Patent AI. Each skill is an end-to-end,
-multi-step patent-research workflow that drives the [FlowLeap CLI](https://github.com/abdullahatrash/flowleap-cli)
+multi-step patent-research workflow that drives the [FlowLeap CLI](https://github.com/flowleap-ai/flowleap-cli)
 (and, through it, the FlowLeap backend facade) to do real patent work.
 
 | Skill | Workflow |
@@ -23,7 +23,7 @@ the FlowLeap CLI available.
 
 ### Requires the FlowLeap CLI (and the CLI tool skills)
 
-This pack has a **soft dependency on the [FlowLeap CLI](https://github.com/abdullahatrash/flowleap-cli)** —
+This pack has a **soft dependency on the [FlowLeap CLI](https://github.com/flowleap-ai/flowleap-cli)** —
 install it separately; it is a runtime dependency. Each recipe's frontmatter
 declares `metadata.requires.skills` naming the CLI tool skills it builds on
 (`flowleap-shared`, `flowleap-patent`, `flowleap-ops`, `flowleap-academic`).

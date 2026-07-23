@@ -1,7 +1,7 @@
 # Personas
 
 Persona skill pack for FlowLeap Patent AI. Each skill primes the agent to work
-as a particular kind of IP professional, driving the [FlowLeap CLI](https://github.com/abdullahatrash/flowleap-cli)
+as a particular kind of IP professional, driving the [FlowLeap CLI](https://github.com/flowleap-ai/flowleap-cli)
 (and, through it, the FlowLeap backend facade) to do real patent work.
 
 | Skill | Persona |
@@ -21,7 +21,7 @@ the FlowLeap CLI available.
 
 ### Requires the FlowLeap CLI
 
-This pack has a **soft dependency on the [FlowLeap CLI](https://github.com/abdullahatrash/flowleap-cli)** —
+This pack has a **soft dependency on the [FlowLeap CLI](https://github.com/flowleap-ai/flowleap-cli)** —
 install it separately; it is a runtime dependency. Each persona's frontmatter
 declares `metadata.requires.skills` naming the CLI's own skills
 (`flowleap-shared`, `flowleap-patent`, `flowleap-ops`, `flowleap-academic`).

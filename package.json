@@ -4,7 +4,7 @@
 	"private": true,
 	"description": "The FlowLeap Plugin Marketplace — curated, free-to-install skill packs for patent and IP work.",
 	"license": "MIT",
-	"homepage": "https://github.com/abdullahatrash/flowleap-plugins",
+	"homepage": "https://github.com/flowleap-ai/flowleap-plugins",
 	"scripts": {
 		"validate": "node scripts/validate.mjs",
 		"validate:fixtures": "node scripts/validate.mjs --test-fixtures",

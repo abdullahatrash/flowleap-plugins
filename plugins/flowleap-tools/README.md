@@ -1,7 +1,7 @@
 # FlowLeap Tools
 
 The FlowLeap CLI tool pack. Each skill teaches an agent to drive one command
-family of the [FlowLeap CLI](https://github.com/abdullahatrash/flowleap-cli)
+family of the [FlowLeap CLI](https://github.com/flowleap-ai/flowleap-cli)
 and, through it, the FlowLeap backend facade — patent search, prosecution
 metadata, literature, legal references, citations, and the unified tools facade.
 
@@ -30,7 +30,7 @@ in Claude Code, and in any agent that has the FlowLeap CLI available.
 
 ### Requires the FlowLeap CLI
 
-This pack has a **soft dependency on the [FlowLeap CLI](https://github.com/abdullahatrash/flowleap-cli)** —
+This pack has a **soft dependency on the [FlowLeap CLI](https://github.com/flowleap-ai/flowleap-cli)** —
 install it separately; it is a runtime dependency. These skills document and
 drive the CLI; without the `flowleap` binary on PATH (and valid credentials via
 `flowleap-auth` / `flowleap-keys`) the skills load but their commands will not
