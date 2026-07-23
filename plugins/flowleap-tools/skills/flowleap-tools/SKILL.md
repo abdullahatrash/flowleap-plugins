@@ -51,6 +51,11 @@ Compound (one call, multiple sources): `get_patent_summary`, `compare_patents`
 Reference: `reference_search` (patent-law RAG: EPC, EPO Guidelines, MPEP, …).
 Meta: `server_info`.
 
+Portfolio Analytics (structured-criteria applicant aggregation, PATSTAT):
+`patstat_portfolio` — available once the backend registry entry lands; see
+`flowleap-patstat` for the routing rule against Topic Analytics
+(`flowleap analytics`) and the `data_edition`/`patstat_unavailable` contract.
+
 ## Recipes
 
 Patent snapshot in one call:
@@ -68,7 +73,7 @@ flowleap --json tools run search_uspto_portfolio_by_customer_number customer_num
 Query building still lives in the provider commands:
 
 ```bash
-flowleap --json patent build-query "solid state battery separators" --focus precise
+flowleap --json patent build-query "solid state battery separators" --focus precise --allow-external-processing
 flowleap --json tools run search_patents --input "{\"query\": \"<recommended_cql>\"}"
 ```
 

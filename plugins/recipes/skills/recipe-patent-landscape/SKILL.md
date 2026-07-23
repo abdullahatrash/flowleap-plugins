@@ -3,7 +3,7 @@ name: recipe-patent-landscape
 description: Patent-landscape analysis for a technology area — scoped dual-database search, key-player identification, full-corpus filing analytics, and CPC-versus-year white-space detection. Trigger when the user asks to map a technology space, identify who patents in an area, or report filing trends and white space.
 metadata:
   requires:
-    skills: ["flowleap-shared", "flowleap-patent", "flowleap-uspto", "flowleap-ops"]
+    skills: ["flowleap-shared", "flowleap-patent", "flowleap-uspto", "flowleap-ops", "recipe-custom-dashboard"]
 ---
 
 # Recipe: Patent Landscape Analysis
@@ -17,8 +17,8 @@ USPTO Lucene grammar.
 ### Step 1: Define Search Scope
 
 ```bash
-flowleap patent build-query "<technology description>"
-flowleap uspto build-query "<technology description>"
+flowleap patent build-query "<technology description>" --allow-external-processing
+flowleap uspto build-query "<technology description>" --allow-external-processing
 ```
 
 Done when you have an EPO CQL query and a USPTO ODP query for the area.
@@ -46,7 +46,7 @@ Build applicant-scoped queries rather than hand-writing CQL — see `flowleap-pa
 for the CQL fields (`pa=` applicant, `ti=` title):
 
 ```bash
-flowleap patent build-query "<top assignee> patents in <technology>"
+flowleap patent build-query "<top assignee> patents in <technology>" --allow-external-processing
 flowleap --json patent search --query "<CQL from build-query>" --limit 30
 ```
 
@@ -73,3 +73,12 @@ trend charts (filings per year, top assignees, CPC and country distributions).
 When tallying players or counts from the search results, collapse to one entry
 per patent **family** so multi-jurisdiction filings are not double-counted; the
 corpus `analytics` figures are aggregate backend counts, reported as returned.
+
+## Visual deliverable
+
+To turn Step 3's filing-trend numbers and Step 6's white-space finding into a
+shareable HTML dashboard, follow this recipe's analysis through to the end,
+then render it with `recipe-custom-dashboard` — its **landscape white-space**
+template (CPC × year heatmap) is built for this recipe's final step, and its
+**filing-trends** template covers Step 3's year-over-year counts. Analysis
+logic stays here; the dashboard skill only owns presentation.
