@@ -1,49 +1,9 @@
 {
-	"$comment": "Single source of truth for the shipped SKILL.md files. Canonical skills live in flowleap-cli; this repo is a synced distribution. To update skills: bump 'ref' to a new flowleap-cli tag, re-copy the listed SKILL.md files byte-for-byte, and open a PR. scripts/check-drift.mjs fetches each skill from the pinned ref and fails CI if a shipped copy differs. Do NOT hand-edit shipped skills/ content — edit upstream in flowleap-cli, tag a release, then re-sync here.",
+	"$comment": "Single source of truth for the shipped SKILL.md files. Canonical skills live in flowleap-cli; this repo is a synced distribution. To update skills: bump 'ref' to a new flowleap-cli tag, re-copy the listed SKILL.md files byte-for-byte, and open a PR. scripts/check-drift.mjs fetches each skill from the pinned ref and fails CI if a shipped copy differs. Do NOT hand-edit shipped skills/ content \u2014 edit upstream in flowleap-cli, tag a release, then re-sync here.",
 	"source": "flowleap-ai/flowleap-cli",
 	"ref": "v0.3.8",
 	"sourceSkillsDir": "skills",
 	"skills": [
-		{
-			"name": "persona-ip-analyst",
-			"plugin": "flowleap"
-		},
-		{
-			"name": "persona-patent-attorney",
-			"plugin": "flowleap"
-		},
-		{
-			"name": "persona-researcher",
-			"plugin": "flowleap"
-		},
-		{
-			"name": "persona-startup-founder",
-			"plugin": "flowleap"
-		},
-		{
-			"name": "recipe-prior-art-search",
-			"plugin": "flowleap"
-		},
-		{
-			"name": "recipe-freedom-to-operate",
-			"plugin": "flowleap"
-		},
-		{
-			"name": "recipe-patent-landscape",
-			"plugin": "flowleap"
-		},
-		{
-			"name": "recipe-claim-analysis",
-			"plugin": "flowleap"
-		},
-		{
-			"name": "recipe-patent-to-report",
-			"plugin": "flowleap"
-		},
-		{
-			"name": "recipe-academic-literature-review",
-			"plugin": "flowleap"
-		},
 		{
 			"name": "flowleap",
 			"plugin": "flowleap"
@@ -81,6 +41,10 @@
 			"plugin": "flowleap"
 		},
 		{
+			"name": "flowleap-patstat",
+			"plugin": "flowleap"
+		},
+		{
 			"name": "flowleap-shared",
 			"plugin": "flowleap"
 		},
@@ -93,13 +57,73 @@
 			"plugin": "flowleap"
 		},
 		{
-			"name": "flowleap-patstat",
+			"name": "persona-ip-analyst",
+			"plugin": "flowleap"
+		},
+		{
+			"name": "persona-patent-attorney",
+			"plugin": "flowleap"
+		},
+		{
+			"name": "persona-researcher",
+			"plugin": "flowleap"
+		},
+		{
+			"name": "persona-startup-founder",
+			"plugin": "flowleap"
+		},
+		{
+			"name": "recipe-academic-literature-review",
+			"plugin": "flowleap"
+		},
+		{
+			"name": "recipe-audit-report",
+			"plugin": "flowleap"
+		},
+		{
+			"name": "recipe-claim-analysis",
+			"plugin": "flowleap"
+		},
+		{
+			"name": "recipe-claim-drafting",
 			"plugin": "flowleap"
 		},
 		{
 			"name": "recipe-custom-dashboard",
 			"plugin": "flowleap",
-			"$comment": "Ships its references/ tree (templates, fixtures, smoke) alongside SKILL.md — the skill is inert without them. check-drift guards only the SKILL.md; re-copy references/ on every re-sync."
+			"$comment": "Ships its references/ tree (templates, fixtures, smoke) alongside SKILL.md \u2014 the skill is inert without them. check-drift guards only the SKILL.md; re-copy references/ on every re-sync."
+		},
+		{
+			"name": "recipe-freedom-to-operate",
+			"plugin": "flowleap"
+		},
+		{
+			"name": "recipe-infringement-charting",
+			"plugin": "flowleap"
+		},
+		{
+			"name": "recipe-invalidity-analysis",
+			"plugin": "flowleap"
+		},
+		{
+			"name": "recipe-invention-disclosure",
+			"plugin": "flowleap"
+		},
+		{
+			"name": "recipe-office-action-response",
+			"plugin": "flowleap"
+		},
+		{
+			"name": "recipe-patent-landscape",
+			"plugin": "flowleap"
+		},
+		{
+			"name": "recipe-patent-to-report",
+			"plugin": "flowleap"
+		},
+		{
+			"name": "recipe-prior-art-search",
+			"plugin": "flowleap"
 		}
 	]
 }
