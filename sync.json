@@ -1,8 +1,8 @@
 {
 	"$comment": "Single source of truth for the shipped SKILL.md files. Canonical skills live in flowleap-cli; this repo is a synced distribution. To update skills: bump 'ref' to a new flowleap-cli tag, re-copy the listed SKILL.md files byte-for-byte, and open a PR. scripts/check-drift.mjs fetches each skill from the pinned ref and fails CI if a shipped copy differs. Do NOT hand-edit shipped skills/ content \u2014 edit upstream in flowleap-cli, tag a release, then re-sync here.",
 	"source": "flowleap-ai/flowleap-cli",
-	"$refComment": "Pinned to an unreleased flowleap-cli main commit, NOT a tag: the Graph Analytics commands these skills document landed after v0.4.0. Re-pin to the release tag once flowleap-cli cuts one — merging publishes, and a pack documenting commands absent from the installed CLI breaks every user who installs it.",
-	"ref": "71c0c7c78b8c9379b68662425db0dcf57af1b465",
+	"$refComment": "Pinned to the flowleap-cli release tag whose binary ships the documented commands. Never pin a bare main commit for a merge: merging publishes, and a pack documenting commands absent from the installed CLI breaks every user who installs it.",
+	"ref": "v0.5.0",
 	"sourceSkillsDir": "skills",
 	"skills": [
 		{
