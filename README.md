@@ -19,11 +19,19 @@ single install brings the complete 24-skill set:
 - **Personas** (`persona-*`) — patent attorney, IP analyst, researcher, and
   startup-founder roles.
 
-Install in Claude Code:
+## Install
+
+In Claude Code, run:
 
 ```
 /plugin marketplace add flowleap-ai/flowleap-plugins
 /plugin install flowleap@flowleap-plugins
+```
+
+For other agents (Cursor, Codex, and more), use the `npx skills` CLI:
+
+```
+npx skills add flowleap-ai/flowleap-plugins
 ```
 
 Every pack drives the FlowLeap CLI / backend facade — no in-app typed tool
